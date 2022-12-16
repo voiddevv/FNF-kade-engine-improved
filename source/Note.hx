@@ -196,8 +196,10 @@ class Note extends FlxSprite
 	override function update(elapsed:Float)
 	{
 		super.update(elapsed);
-		if (animation.curAnim.name.endsWith('end'))
+		if (!PlayStateChangeables.useDownscroll && animation.curAnim.name.endsWith('end'))
 			this.offset.y = 32;
+		if(PlayStateChangeables.useDownscroll && animation.curAnim.name.endsWith('end'))
+			this.offset.y = 10;
 
 		if (mustPress)
 		{
